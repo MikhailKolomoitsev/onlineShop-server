@@ -7,6 +7,8 @@ const cors = require('cors')
 const router = require('./routes')
 const ErrorHandler = require('./middleware/ErrorHandler')
 const path = require('path')
+const dotenv = require('dotenv')
+dotenv.config()
 
 const PORT = process.env.PORT || 4999
 

@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "root",
+        "database": "online_shop",
+        "host": "localhost",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "wfhoaddfrpflbl",
+        "password": "d76cdb2b7246e95bfb1fe7dcf8c93b88a8ad2e5e9940f6b4e0dfc44a6df3d939",
+        "database": "d6i02m5t142um9",
+        "host": "ec2-52-211-158-144.eu-west-1.compute.amazonaws.com",
+        "dialect": "postgres"
+    }
+}
