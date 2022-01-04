@@ -2,6 +2,7 @@ const uuid = require('uuid')
 const path = require('path')
 const { Device, DeviceInfo } = require('../models/models')
 const ApiError = require('../error/ApiError')
+const { cloudinary } = require('../utils/cloudinary');
 
 class DeviceController {
     async create(req, res, next) {
@@ -9,8 +10,18 @@ class DeviceController {
             let { name, price, brandId, typeId, info, rating=5 } = req.body
             let { img } = req.files
             let fileName = uuid.v4() + '.jpg'
-            img.mv(path.resolve(__dirname, '..', "static", fileName))
-            let device = await Device.create({ name, price, brandId, typeId, rating, img: fileName })
+
+            const filePath = path.resolve(__dirname, '..', "static", fileName)
+            
+            img.mv(filePath)
+            
+            //cloudinary
+            const uploadResponse = await cloudinary.uploader.upload(filePath, {
+                upload_preset: 'ml_default',
+            });
+            let imgLink = uploadResponse.url
+
+            let device = await Device.create({ name, price, brandId, typeId, rating, img: imgLink })
             if (info) {
                 info = JSON.parse(info)
                 info.forEach(i => {
