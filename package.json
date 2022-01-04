@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env nodemon index.js",
-    "start": "cross-env nodemon index.js",
+    "start": "cross-env node index.js",
     "start:dev": "nodemon index.js"
   },
   "keywords": [],

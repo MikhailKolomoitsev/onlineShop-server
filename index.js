@@ -19,6 +19,7 @@ app.use(
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     }),
 );
+
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static'))) //getting static pics from server in static folder
 app.use(fileUpload({}))
