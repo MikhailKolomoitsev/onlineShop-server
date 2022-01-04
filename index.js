@@ -13,7 +13,12 @@ dotenv.config()
 const PORT = process.env.PORT || 4999
 
 const app = express()
-app.use(cors())
+app.use(
+    cors({
+        origin: '*',
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    }),
+);
 app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static'))) //getting static pics from server in static folder
 app.use(fileUpload({}))
